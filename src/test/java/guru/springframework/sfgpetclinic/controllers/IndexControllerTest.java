@@ -8,6 +8,7 @@ import org.junit.jupiter.api.condition.*;
 
 import java.time.Duration;
 
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
@@ -25,6 +26,8 @@ class IndexControllerTest {
         assertEquals("index", indexController.index());
         assertEquals("index", indexController.index(), "Wrong view used");
         assertEquals("index", indexController.index(), () -> "Wrong view used - used with lambda");
+
+        assertThat(indexController.index()).isEqualTo("index");
     }
 
     @DisplayName("Test exception")
